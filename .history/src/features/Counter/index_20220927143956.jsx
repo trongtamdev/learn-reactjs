@@ -12,14 +12,14 @@ const useStyles = makeStyles({
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
-    height: 32,
+    height: 48,
     padding: '0 30px',
   },
 });
 CounterFeature.propTypes = {};
 
 function CounterFeature(props) {
-  const classes = useStyles();
+  const classes =useStyles();
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
 
@@ -36,12 +36,8 @@ function CounterFeature(props) {
     <div>
       Counter: {count}
       <div>
-        <Button className={classes.root} onClick={handleIncreaseClick}>
-          Increase
-        </Button>
-        <Button className={classes.root} onClick={handleDecreaseClick}>
-          Decrease
-        </Button>
+        <Button className={classes.root} onClick={handleIncreaseClick}>Increase</Button>
+        <Button className={classes.root}onClick={handleDecreaseClick}>Decrease</Button>
       </div>
     </div>
   );

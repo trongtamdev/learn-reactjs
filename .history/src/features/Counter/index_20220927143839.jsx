@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 CounterFeature.propTypes = {};
 
 function CounterFeature(props) {
-  const classes = useStyles();
+  const classes =useStyles();
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
 
@@ -36,12 +36,8 @@ function CounterFeature(props) {
     <div>
       Counter: {count}
       <div>
-        <Button className={classes.root} onClick={handleIncreaseClick}>
-          Increase
-        </Button>
-        <Button className={classes.root} onClick={handleDecreaseClick}>
-          Decrease
-        </Button>
+        <Button className={classes.root} onClick={handleIncreaseClick}>Increase</Button>
+        <Button className={classes.root} onClick={handleDecreaseClick}>Decrease</Button>
       </div>
     </div>
   );
