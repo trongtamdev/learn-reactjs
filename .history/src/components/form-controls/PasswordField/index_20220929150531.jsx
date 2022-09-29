@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import { TextField } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
-InputField.propTypes = {
+Pass.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   disabled: PropTypes.bool,
 };
 
-function InputField(props) {
+function Pass(props) {
   const { form, name, label, disabled } = props;
-  const { errors} = form;
-  const hasError = errors[name];
-
+  const { errors, formState } = form;
+  const hasError = formState.touched[name] && errors[name];
+  console.log(errors[name], formState.touched[name]);
   return (
     <Controller
       name={name}
@@ -31,4 +31,4 @@ function InputField(props) {
   );
 }
 
-export default InputField;
+export default Pass;
