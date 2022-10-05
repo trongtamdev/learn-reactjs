@@ -29,7 +29,7 @@ FilterByCategory.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByCategory({onChange}) {
+function FilterByCategory(onChange) {
   const [categoryList, setCategoryList] = useState([]);
   const classes = useStyles();
 
@@ -37,6 +37,7 @@ function FilterByCategory({onChange}) {
     (async () => {
       try {
         const list = await categoryApi.getAll();
+        console.log({resp});
         setCategoryList(
           list.map((x) => ({
             id: x.id,

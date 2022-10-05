@@ -5,33 +5,33 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import categoryApi from 'api/categoryApi';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     padding: theme.spacing(2),
+//   },
 
-  menu: {
-    padding: 0,
-    margin: 0,
-    listStyleType: 'none',
-    '&>li': {
-      marginTop: theme.spacing(1),
-      transition: 'all 025s',
-      '&:hover': {
-        color: theme.palette.primary.dark,
-        cursor: 'pointer',
-      },
-    },
-  },
-}));
+//   menu: {
+//     padding: 0,
+//     margin: 0,
+//     listStyleType: 'none',
+//     '&>li': {
+//       marginTop: theme.spacing(1),
+//       transition: 'all 025s',
+//       '&:hover': {
+//         color: theme.palette.primary.dark,
+//         cursor: 'pointer',
+//       },
+//     },
+//   },
+// }));
 
 FilterByCategory.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByCategory({onChange}) {
+function FilterByCategory(onChange) {
   const [categoryList, setCategoryList] = useState([]);
-  const classes = useStyles();
+//   const classes = useStyles();
 
   useEffect(() => {
     (async () => {
@@ -56,7 +56,7 @@ function FilterByCategory({onChange}) {
   };
 
   return (
-    <Box className={classes.root}>
+    <Box c>
       <Typography variant="subtitle2">DANH MỤC SẢN PHẨM</Typography>
       <ul className={classes.menu}>
         {categoryList.map((category) => (

@@ -29,7 +29,7 @@ FilterByCategory.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByCategory({onChange}) {
+function FilterByCategory(onChange) {
   const [categoryList, setCategoryList] = useState([]);
   const classes = useStyles();
 

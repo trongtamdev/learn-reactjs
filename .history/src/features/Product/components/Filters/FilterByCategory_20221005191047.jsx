@@ -31,7 +31,7 @@ FilterByCategory.propTypes = {
 
 function FilterByCategory({onChange}) {
   const [categoryList, setCategoryList] = useState([]);
-  const classes = useStyles();
+//   const classes = useStyles();
 
   useEffect(() => {
     (async () => {
@@ -56,9 +56,9 @@ function FilterByCategory({onChange}) {
   };
 
   return (
-    <Box className={classes.root}>
+    <Box >
       <Typography variant="subtitle2">DANH MỤC SẢN PHẨM</Typography>
-      <ul className={classes.menu}>
+      <ul >
         {categoryList.map((category) => (
           <li key={category.id} onClick={() => handleCategoryClick(category)}>
             <Typography variant="body2"> {category.name}</Typography>

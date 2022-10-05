@@ -19,7 +19,7 @@ function ProductFilters({ filters, onChange }) {
   };
 
   return (
-
+    <div>
       <Box>
         <FilterByCategory onChange={handleCategoryChange}></FilterByCategory>
       </Box>
