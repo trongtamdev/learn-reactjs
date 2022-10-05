@@ -78,8 +78,9 @@ function ListPage(props) {
             <Paper elevation={0}>Left column</Paper>
           </Grid>
           <Grid item className={classes.right}>
+            
             <Paper elevation={0}>
-              <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
+            <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
               {loading ? (
                 <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (

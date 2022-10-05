@@ -13,7 +13,7 @@ function Product({ product }) {
   return (
     <Box padding={1}>
       {/* https://api.ezfrontend.com/uploads/9ff7d29c2ebad4fd802685eb770d9452_417240087a.jpg */}
-      <Box padding={1} minHeight="215px">
+      <Box padding={1} minhe>
         <img src={thumbnailUrl} alt={product.name} width="100%"></img>
       </Box>
 

@@ -1,13 +1,22 @@
 // import './App.css';
+import { Button } from '@material-ui/core';
 import Header from 'components/Header';
 import ProductFeature from 'features/Product';
+import { useSnackbar } from 'notistack';
+import { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import productApi from './api/productApi';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album/pages';
 import CounterFeature from './features/Counter';
 import TodoFeature from './features/Todo/pages';
 
 function App() {
+
+
+
+
+
 
   return (
     <div className="App">

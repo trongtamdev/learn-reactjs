@@ -39,7 +39,6 @@ function ListPage(props) {
   const [filters, setFilters] = useState({
     _page: 1,
     _limit: 9,
-    _sort: 'salePrice:ASC',
   });
 
   useEffect(() => {
@@ -61,13 +60,12 @@ function ListPage(props) {
       ...prevFilter,
       _page: page,
     }));
-  };
 
-  const handleSortChange = (newSortValue) => {
-    setFilters((prevFilter) => ({
-      ...prevFilter,
-      _sort: newSortValue,
-    }));
+    const handleSortChange = (newSortValue) => {
+      setFilters((prevFilter) => ({
+        ...prevFilter,
+        _page: page,
+      }));
   };
 
   return (
@@ -78,8 +76,8 @@ function ListPage(props) {
             <Paper elevation={0}>Left column</Paper>
           </Grid>
           <Grid item className={classes.right}>
+            <ProductSort currentSort="" onChange={handle}></ProductSort>
             <Paper elevation={0}>
-              <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
               {loading ? (
                 <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (

@@ -4,7 +4,6 @@ import productApi from 'api/productApi';
 import { useEffect, useState } from 'react';
 import ProductList from '../components/ProductList';
 import ProductSkeletonList from '../components/ProductSkeletonList';
-import ProductSort from '../components/ProductSort';
 
 ListPage.propTypes = {};
 
@@ -39,7 +38,6 @@ function ListPage(props) {
   const [filters, setFilters] = useState({
     _page: 1,
     _limit: 9,
-    _sort: 'salePrice:ASC',
   });
 
   useEffect(() => {
@@ -63,13 +61,6 @@ function ListPage(props) {
     }));
   };
 
-  const handleSortChange = (newSortValue) => {
-    setFilters((prevFilter) => ({
-      ...prevFilter,
-      _sort: newSortValue,
-    }));
-  };
-
   return (
     <Box>
       <Container>
@@ -78,8 +69,8 @@ function ListPage(props) {
             <Paper elevation={0}>Left column</Paper>
           </Grid>
           <Grid item className={classes.right}>
+            <Pro
             <Paper elevation={0}>
-              <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
               {loading ? (
                 <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (
