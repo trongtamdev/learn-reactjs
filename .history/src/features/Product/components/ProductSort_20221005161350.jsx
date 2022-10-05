@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tab, Tabs } from '@material-ui/core';
+import { Tabs } from '@material-ui/core';
 
 ProductSort.propTypes = {
   currentSort: PropTypes.string.isRequired,
