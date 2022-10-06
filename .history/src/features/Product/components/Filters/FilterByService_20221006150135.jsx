@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-FilterByPrice.propTypes = {
+FilterByService.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByPrice({ onChange }) {
+function FilterByService({ onChange }) {
   const classes = useStyles();
   const [values, setValues] = useState({
     salePrice_gte: 0,
@@ -52,7 +52,7 @@ function FilterByPrice({ onChange }) {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle2">CHỌN KHOẢNG GIÁ</Typography>
+      <Typography variant="subtitle2">DỊCH VỤ</Typography>
 
       <Box className={classes.range}>
         <TextField name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange}></TextField>
@@ -67,4 +67,4 @@ function FilterByPrice({ onChange }) {
   );
 }
 
-export default FilterByPrice;
+export default FilterByService;

@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-FilterByPrice.propTypes = {
+.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByPrice({ onChange }) {
+function ({ onChange }) {
   const classes = useStyles();
   const [values, setValues] = useState({
     salePrice_gte: 0,
@@ -67,4 +67,4 @@ function FilterByPrice({ onChange }) {
   );
 }
 
-export default FilterByPrice;
+export default ;

@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-FilterByPrice.propTypes = {
+FilterByService.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByPrice({ onChange }) {
+function FilterByService({ onChange }) {
   const classes = useStyles();
   const [values, setValues] = useState({
-    salePrice_gte: 0,
+    : 0,
     salePrice_lte: 0,
   });
 
@@ -45,26 +45,24 @@ function FilterByPrice({ onChange }) {
     if (onChange) onChange(values);
 
     setValues({
-      salePrice_gte: 0,
+      : 0,
       salePrice_lte: 0,
     });
   };
 
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle2">CHỌN KHOẢNG GIÁ</Typography>
+      <Typography variant="subtitle2">DỊCH VỤ</Typography>
 
-      <Box className={classes.range}>
-        <TextField name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange}></TextField>
-        <span>-</span>
-        <TextField name="salePrice_lte" value={values.salePrice_lte} onChange={handleChange}></TextField>
-      </Box>
+      <ul>
+        {['isPromotion' ,'isFreeShip'].map(service=>(
+          <li key={service}>
 
-      <Button variant="outline" color="primary" size="small" onClick={handleSubmit}>
-        Áp dụng
-      </Button>
+          </li>
+        ))}
+      </ul>
     </Box>
   );
 }
 
-export default FilterByPrice;
+export default FilterByService;

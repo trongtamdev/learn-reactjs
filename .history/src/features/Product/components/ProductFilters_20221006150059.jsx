@@ -26,7 +26,7 @@ function ProductFilters({ filters, onChange }) {
     <Box>
       <FilterByCategory onChange={handleCategoryChange}></FilterByCategory>
       <FilterByPrice onChange={handleChange}></FilterByPrice>
-      <FilterByService filters={filters} onChange={handleChange}></FilterByService>
+      <FilterByService filters={fil} onChange={handleChange}></FilterByService>
     </Box>
   );
 }

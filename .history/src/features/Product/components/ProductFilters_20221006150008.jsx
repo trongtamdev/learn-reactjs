@@ -19,15 +19,19 @@ function ProductFilters({ filters, onChange }) {
     onChange(newFilters);
   };
 
-  const handleChange = (values) => {
-    if (onChange) onChange(values);
-  };
+  const handleChange=(values)=>{
+    if(onChange){
+      onChange(values)
+    }
+  }
   return (
-    <Box>
-      <FilterByCategory onChange={handleCategoryChange}></FilterByCategory>
-      <FilterByPrice onChange={handleChange}></FilterByPrice>
-      <FilterByService filters={filters} onChange={handleChange}></FilterByService>
-    </Box>
+
+      <Box>
+        <FilterByCategory onChange={handleCategoryChange}></FilterByCategory>
+        <FilterByPrice onChange={handleChange}></FilterByPrice>
+        <FilterByService></FilterByService>
+      </Box>
+
   );
 }
 

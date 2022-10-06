@@ -52,7 +52,7 @@ function FilterByPrice({ onChange }) {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle2">CHỌN KHOẢNG GIÁ</Typography>
+      <Typography variant="subtitle2">GIÁ</Typography>
 
       <Box className={classes.range}>
         <TextField name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange}></TextField>
@@ -60,7 +60,7 @@ function FilterByPrice({ onChange }) {
         <TextField name="salePrice_lte" value={values.salePrice_lte} onChange={handleChange}></TextField>
       </Box>
 
-      <Button variant="outline" color="primary" size="small" onClick={handleSubmit}>
+      <Button variant="outline" color="primary" size="smaill" onClick={handleSubmit}>
         Áp dụng
       </Button>
     </Box>

@@ -22,15 +22,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-FilterByPrice.propTypes = {
+FilterByService.propTypes = {
+  filters: PropTypes.object,
   onChange: PropTypes.func,
 };
 
-function FilterByPrice({ onChange }) {
+function FilterByService({ filters = {}, onChange }) {
   const classes = useStyles();
   const [values, setValues] = useState({
-    salePrice_gte: 0,
-    salePrice_lte: 0,
+    isPromotion: Boolean(filters.isPromotion),
+    isFreeShip: Boolean(filters.isFreeShip),
   });
 
   const handleChange = (e) => {
@@ -43,28 +44,30 @@ function FilterByPrice({ onChange }) {
 
   const handleSubmit = () => {
     if (onChange) onChange(values);
-
-    setValues({
-      salePrice_gte: 0,
-      salePrice_lte: 0,
-    });
   };
 
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle2">CHỌN KHOẢNG GIÁ</Typography>
+      <Typography variant="subtitle2">DỊCH VỤ</Typography>
 
-      <Box className={classes.range}>
-        <TextField name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange}></TextField>
-        <span>-</span>
-        <TextField name="salePrice_lte" value={values.salePrice_lte} onChange={handleChange}></TextField>
-      </Box>
-
-      <Button variant="outline" color="primary" size="small" onClick={handleSubmit}>
-        Áp dụng
-      </Button>
+      <ul>
+        {['isPromotion', 'isFreeShip'].map((service) => (
+          <li key={service}
+          <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedB}
+            onChange={handleChange}
+            name="checkedB"
+            color="primary"
+          />
+        }
+        label="Primary"
+      />></li>
+        ))}
+      </ul>
     </Box>
   );
 }
 
-export default FilterByPrice;
+export default FilterByService;
