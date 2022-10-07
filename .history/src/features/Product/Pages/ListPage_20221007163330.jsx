@@ -43,8 +43,8 @@ function ListPage(props) {
     //{isPromotion:"true"}
     return {
       ...params,
-      _page: Number.parseInt(params._page) || 1,
-      _limit: Number.parseInt(params._limit) || 9,
+      _page: Number.parseInt(queryParams._page) || 1,
+      _limit: Number.parseInt(queryParams._limit) || 9,
       _sort: params._sort || 'salePrice:ASC',
       isPromotion: params.isPromotion === 'true',
       isFreeShip: params.isFreeShip === 'true',
@@ -78,7 +78,7 @@ function ListPage(props) {
   //     search: queryString.stringify(filters),
   //   });
   // }, [history, filters]);
-
+  
   useEffect(() => {
     (async () => {
       try {

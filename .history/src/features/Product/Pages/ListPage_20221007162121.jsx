@@ -43,12 +43,12 @@ function ListPage(props) {
     //{isPromotion:"true"}
     return {
       ...params,
-      _page: Number.parseInt(params._page) || 1,
-      _limit: Number.parseInt(params._limit) || 9,
+      _page: Number.parseInt(queryParams._page) || 1,
+      _limit: Number.parseInt(queryParams._limit) || 9,
       _sort: params._sort || 'salePrice:ASC',
-      isPromotion: params.isPromotion === 'true',
-      isFreeShip: params.isFreeShip === 'true',
-    };
+      isPromotion: params.isPromotion ==='true',
+      isFreeShip: params.isFreeShip ==='true',
+    }
   }, [location.search]);
 
   const [productList, setProductList] = useState([]);
@@ -94,61 +94,35 @@ function ListPage(props) {
   }, [queryParams]);
 
   const handlePageChange = (e, page) => {
-    // setFilters((prevFilters) => ({
-    //   ...prevFilters,
-    //   _page: page,
-    // }));
-    const filters = {
-      ...queryParams,
+    setFilters((prevFilters) => ({
+      ...prevFilters,
       _page: page,
-    };
+    }));
+    const filters={
+      
+    }
 
-    history.push({
+        history.push({
       pathname: history.location.pathname,
       search: queryString.stringify(filters),
-    });
   };
 
   const handleSortChange = (newSortValue) => {
-    // setFilters((prevFilters) => ({
-    //   ...prevFilters,
-    //   _sort: newSortValue,
-    // }));
-
-    const filters = {
-      ...queryParams,
+    setFilters((prevFilters) => ({
+      ...prevFilters,
       _sort: newSortValue,
-    };
-
-    history.push({
-      pathname: history.location.pathname,
-      search: queryString.stringify(filters),
-    });
+    }));
   };
 
   const handleFiltersChange = (newFilters) => {
-    // setFilters((prevFilters) => ({
-    //   ...prevFilters,
-    //   ...newFilters,
-    // }));
-
-    const filters = {
-      ...queryParams,
+    setFilters((prevFilters) => ({
+      ...prevFilters,
       ...newFilters,
-    };
-
-    history.push({
-      pathname: history.location.pathname,
-      search: queryString.stringify(filters),
-    });
+    }));
   };
 
   const setNewFilters = (newFilters) => {
-    // setFilters(newFilters);
-    history.push({
-      pathname: history.location.pathname,
-      search: queryString.stringify(newFilters),
-    });
+    setFilters(newFilters);
   };
 
   return (
@@ -157,13 +131,13 @@ function ListPage(props) {
         <Grid container spacing={1}>
           <Grid item className={classes.left}>
             <Paper elevation={0}>
-              <ProductFilters filters={queryParams} onChange={handleFiltersChange}></ProductFilters>
+              <ProductFilters filters={filters} onChange={handleFiltersChange}></ProductFilters>
             </Paper>
           </Grid>
           <Grid item className={classes.right}>
             <Paper elevation={0}>
-              <ProductSort currentSort={queryParams._sort} onChange={handleSortChange}></ProductSort>
-              <FilterViewer filters={queryParams} onChange={setNewFilters}></FilterViewer>
+              <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
+              <FilterViewer filters={filters} onChange={setNewFilters}></FilterViewer>
               {loading ? (
                 <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (

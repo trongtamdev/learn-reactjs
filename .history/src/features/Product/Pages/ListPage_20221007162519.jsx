@@ -43,12 +43,12 @@ function ListPage(props) {
     //{isPromotion:"true"}
     return {
       ...params,
-      _page: Number.parseInt(params._page) || 1,
-      _limit: Number.parseInt(params._limit) || 9,
+      _page: Number.parseInt(queryParams._page) || 1,
+      _limit: Number.parseInt(queryParams._limit) || 9,
       _sort: params._sort || 'salePrice:ASC',
-      isPromotion: params.isPromotion === 'true',
-      isFreeShip: params.isFreeShip === 'true',
-    };
+      isPromotion: params.isPromotion ==='true',
+      isFreeShip: params.isFreeShip ==='true',
+    }
   }, [location.search]);
 
   const [productList, setProductList] = useState([]);
@@ -98,12 +98,12 @@ function ListPage(props) {
     //   ...prevFilters,
     //   _page: page,
     // }));
-    const filters = {
+    const filters={
       ...queryParams,
       _page: page,
-    };
+    }
 
-    history.push({
+        history.push({
       pathname: history.location.pathname,
       search: queryString.stringify(filters),
     });
@@ -115,12 +115,12 @@ function ListPage(props) {
     //   _sort: newSortValue,
     // }));
 
-    const filters = {
+    const filters={
       ...queryParams,
       _sort: newSortValue,
-    };
+    }
 
-    history.push({
+        history.push({
       pathname: history.location.pathname,
       search: queryString.stringify(filters),
     });
@@ -132,12 +132,12 @@ function ListPage(props) {
     //   ...newFilters,
     // }));
 
-    const filters = {
+    const filters={
       ...queryParams,
       ...newFilters,
-    };
+    }
 
-    history.push({
+        history.push({
       pathname: history.location.pathname,
       search: queryString.stringify(filters),
     });
@@ -162,8 +162,8 @@ function ListPage(props) {
           </Grid>
           <Grid item className={classes.right}>
             <Paper elevation={0}>
-              <ProductSort currentSort={queryParams._sort} onChange={handleSortChange}></ProductSort>
-              <FilterViewer filters={queryParams} onChange={setNewFilters}></FilterViewer>
+              <ProductSort currentSort={filters._sort} onChange={handleSortChange}></ProductSort>
+              <FilterViewer filters={filters} onChange={setNewFilters}></FilterViewer>
               {loading ? (
                 <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (
