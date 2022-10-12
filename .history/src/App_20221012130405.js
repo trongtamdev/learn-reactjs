@@ -1,5 +1,4 @@
 // import './App.css';
-import Footer from 'components/Footer';
 import Header from 'components/Header';
 import CartFeature from 'features/Cart';
 import ProductFeature from 'features/Product';
@@ -18,16 +17,14 @@ function App() {
         <Redirect from="/home" to="/" exact></Redirect>
         <Redirect from="/post-list/:postId" to="/posts/:postId" exact></Redirect>
 
-        <Route path="/" component={ProductFeature} exact></Route>
-        {/* <Route path="/" component={CounterFeature} exact></Route> */}
+        <Route path="/" component={CounterFeature} exact></Route>
         <Route path="/todos" component={TodoFeature}></Route>
-        {/* <Route path="/albums" component={AlbumFeature}></Route> */}
+        <Route path="/albums" component={AlbumFeature}></Route>
         <Route path="/products" component={ProductFeature}></Route>
         <Route path="/cart" component={CartFeature}></Route>
 
         <Route component={NotFound}></Route>
       </Switch>
-      <Footer/>
     </div>
   );
 }

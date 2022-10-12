@@ -17,7 +17,7 @@ function CartFeature(props) {
 
             <Typography>Tổng số sản phẩm là: {cartItemsCount}</Typography>
             <Typography> Thành tiền: {formatPrice(cartTotal)}</Typography>
-            {/* <Typography style={{color:'red'}}> đang trong quá trình hoàn thiện !</Typography> */}
+            <Typography ''> Chức năng vẫn đang trong quá trình hoàn thiện !</Typography>
           
         </Box>
     );
