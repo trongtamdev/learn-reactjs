@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '50px',
     marginTop: theme.spacing(3),
-    paddingTop: theme.spacing(1),
+    paddingTop: theme.spacing(),
     backgroundColor: theme.palette.grey[300],
   },
   text: {

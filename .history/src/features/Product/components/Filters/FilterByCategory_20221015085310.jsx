@@ -4,7 +4,7 @@ import { Box, makeStyles, Typography } from '@material-ui/core';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import categoryApi from 'api/categoryApi';
-
+import ListIcon from '@material-ui/icons/List';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,13 +24,16 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  icon:{
+
+  },
 }));
 
 FilterByCategory.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByCategory({ onChange }) {
+function FilterByCategory({onChange}) {
   const [categoryList, setCategoryList] = useState([]);
   const classes = useStyles();
 
@@ -58,7 +61,10 @@ function FilterByCategory({ onChange }) {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle2">DANH MỤC SẢN PHẨM</Typography>
+      
+      <Typography variant="subtitle2">
+        <ListIcon></ListIcon>
+        DANH MỤC SẢN PHẨM</Typography>
       <ul className={classes.menu}>
         {categoryList.map((category) => (
           <li key={category.id} onClick={() => handleCategoryClick(category)}>

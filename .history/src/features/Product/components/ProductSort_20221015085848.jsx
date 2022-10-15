@@ -1,5 +1,6 @@
-import { Tab, Tabs } from '@material-ui/core';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Tab, Tabs } from '@material-ui/core';
 
 ProductSort.propTypes = {
   currentSort: PropTypes.string.isRequired,
@@ -18,6 +19,7 @@ function ProductSort({ currentSort, onChange }) {
       onChange={handleSortChange}
       aria-label="disabled tabs example"
     >
+      <
       <Tab label="Giá thấp đến cao" value="salePrice:ASC"></Tab>
       <Tab label="Giá cao đến thấp" value="salePrice:DESC"></Tab>
     </Tabs>

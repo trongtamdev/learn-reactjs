@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, makeStyles, Typography } from '@material-ui/core';
 
 Footer.propTypes = {};

@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import categoryApi from 'api/categoryApi';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
@@ -30,7 +29,7 @@ FilterByCategory.propTypes = {
   onChange: PropTypes.func,
 };
 
-function FilterByCategory({ onChange }) {
+function FilterByCategory({onChange}) {
   const [categoryList, setCategoryList] = useState([]);
   const classes = useStyles();
 
@@ -62,7 +61,7 @@ function FilterByCategory({ onChange }) {
       <ul className={classes.menu}>
         {categoryList.map((category) => (
           <li key={category.id} onClick={() => handleCategoryClick(category)}>
-            <Typography variant="body2"> {category.name}</Typography>
+            <Typography variant="body"> {category.name}</Typography>
           </li>
         ))}
       </ul>
