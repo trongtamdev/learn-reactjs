@@ -11,7 +11,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { formatPrice } from 'utils';
 import { cartItemsCountSelector, cartTotalSelector } from './selectors';
 
@@ -29,12 +28,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
   },
   text:{
-    margin:theme.spacing(5,0,0,5)
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-  },
+    margin:theme.spacing(2,2,0,0 )
+  }
 }));
 
 CartFeature.propTypes = {};
@@ -54,7 +49,7 @@ function CartFeature(props) {
           </li>
         ))}
       </ul> */}
-      <Typography className={classes.text} component="h1" variant="h4">Giỏ hàng</Typography>
+      <Typography component="h1" variant="h4">Giỏ hàng</Typography>
       <Table className={classes.table} component={Paper}>
         <TableHead>
           <TableRow>
@@ -81,11 +76,11 @@ function CartFeature(props) {
       </Table>
 
       {/* product: {cart.cartItems.product} */}
-      <Typography align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
-      <Typography align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
-      <Button variant="contained" color="primary">
-      <Link className={classes.link} to="/products">
-              Về trang chủ
+      <Typography className={classes.text} align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
+      <Typography className={classes.text} align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
+      <Button variant="contained" color="primary" to="\products">
+      <Link className={classes.link} to="/">
+              TT Shop
             </Link>
       </Button>
       {/* <Typography style={{color:'red'}}> đang trong quá trình hoàn thiện !</Typography> */}

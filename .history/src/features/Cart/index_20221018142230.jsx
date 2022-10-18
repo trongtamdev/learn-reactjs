@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   makeStyles,
   Paper,
   Table,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { formatPrice } from 'utils';
 import { cartItemsCountSelector, cartTotalSelector } from './selectors';
 
@@ -25,15 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   table: {
-    marginTop:theme.spacing(3),
     maxWidth: '100%',
-  },
-  text:{
-    margin:theme.spacing(5,0,0,5)
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
   },
 }));
 
@@ -47,22 +37,24 @@ function CartFeature(props) {
   console.log('list items:', cart);
   return (
     <Box>
-      {/* <ul>
+      <ul>
         {cart.map((item) => (
           <li key={item.id}>
             tên: {item.product.name} số lượng: {item.quantity} đơn giá: {item.product.salePrice * item.quantity}
           </li>
         ))}
-      </ul> */}
-      <Typography className={classes.text} component="h1" variant="h4">Giỏ hàng</Typography>
+      </ul>
+
       <Table className={classes.table} component={Paper}>
         <TableHead>
           <TableRow>
+            <TableCell>
               <TableCell>Tên sản phẩm</TableCell>
               <TableCell align="right">Giá gốc</TableCell>
               <TableCell align="right">Giá khuyến mãi</TableCell>
               <TableCell align="right">Số lượng</TableCell>
               <TableCell align="right">Thành tiền</TableCell>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -81,13 +73,8 @@ function CartFeature(props) {
       </Table>
 
       {/* product: {cart.cartItems.product} */}
-      <Typography align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
-      <Typography align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
-      <Button variant="contained" color="primary">
-      <Link className={classes.link} to="/products">
-              Về trang chủ
-            </Link>
-      </Button>
+      <Typography>Tổng số sản phẩm là: {cartItemsCount}</Typography>
+      <Typography> Thành tiền: {formatPrice(cartTotal)}</Typography>
       {/* <Typography style={{color:'red'}}> đang trong quá trình hoàn thiện !</Typography> */}
     </Box>
   );

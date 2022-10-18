@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
   },
   text:{
-    margin:theme.spacing(5,0,0,5)
+    margin:theme.spacing(3)
   },
   link: {
     color: '#fff',
@@ -54,7 +54,7 @@ function CartFeature(props) {
           </li>
         ))}
       </ul> */}
-      <Typography className={classes.text} component="h1" variant="h4">Giỏ hàng</Typography>
+      <Typography component="h1" variant="h4">Giỏ hàng</Typography>
       <Table className={classes.table} component={Paper}>
         <TableHead>
           <TableRow>
@@ -81,11 +81,11 @@ function CartFeature(props) {
       </Table>
 
       {/* product: {cart.cartItems.product} */}
-      <Typography align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
-      <Typography align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
+      <Typography className={classes.text} align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
+      <Typography className={classes.text} align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
       <Button variant="contained" color="primary">
       <Link className={classes.link} to="/products">
-              Về trang chủ
+              TT Shop
             </Link>
       </Button>
       {/* <Typography style={{color:'red'}}> đang trong quá trình hoàn thiện !</Typography> */}
