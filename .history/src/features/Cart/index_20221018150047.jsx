@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     margin:theme.spacing(3,0,0,3)
   },
   typ:{
-    margin:theme.spacing(1, 1,0,0)
+    margin:theme.spacing(, 2,0,0)
   },
   link: {
     color: '#fff',

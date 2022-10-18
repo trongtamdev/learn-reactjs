@@ -29,10 +29,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
   },
   text:{
-    margin:theme.spacing(3,0,0,3)
-  },
-  typ:{
-    margin:theme.spacing(1, 1,0,0)
+    margin:theme.spacing(5,0,0,5)
   },
   link: {
     color: '#fff',

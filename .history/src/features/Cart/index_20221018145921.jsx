@@ -29,10 +29,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
   },
   text:{
-    margin:theme.spacing(3,0,0,3)
-  },
-  typ:{
-    margin:theme.spacing(1, 1,0,0)
+    margin:theme.spacing(5,0,0,5)
   },
   link: {
     color: '#fff',
@@ -84,8 +81,8 @@ function CartFeature(props) {
       </Table>
 
       {/* product: {cart.cartItems.product} */}
-      <Typography  className={classes.typ} align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
-      <Typography  className={classes.typ} align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
+      <Typography  className={classes.link} align="right">Tổng số sản phẩm là: {cartItemsCount}</Typography>
+      <Typography  className={classes.link} align="right"> Thành tiền: {formatPrice(cartTotal)}</Typography>
       <Button variant="contained" color="primary">
       <Link className={classes.link} to="/products">
               Về trang chủ
