@@ -104,8 +104,8 @@ function CartFeature() {
                   size="small"
                 >
                   Remove
-                </Button>
-              </TableCell> */}
+                </Button> */}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

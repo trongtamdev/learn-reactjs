@@ -58,7 +58,8 @@ function CartFeature() {
   // const { product } = useProductDetail(productId);
 
   const handleDeleteItem = (item) => {
-    dispatch(removeFromCart(item));
+    dispatch(removeFromCart(cart.idx));
+    console.log(cart);
   };
 
   return (
@@ -93,10 +94,10 @@ function CartFeature() {
               <TableCell align="right">{formatPrice(item.product.salePrice)}</TableCell>
               <TableCell align="right"> {item.quantity} </TableCell>
               <TableCell align="right"> {formatPrice(item.product.salePrice * item.quantity)}</TableCell>
-              {/* <TableCell align="right">
+              <TableCell align="right">
                 {' '}
                 <Button
-                  onClick={()=>handleDeleteItem(item)}
+                  onClick={handleDeleteItem}
                   type="submit"
                   variant="contained"
                   color="primary"
@@ -105,7 +106,7 @@ function CartFeature() {
                 >
                   Remove
                 </Button>
-              </TableCell> */}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

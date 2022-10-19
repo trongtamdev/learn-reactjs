@@ -44,7 +44,7 @@ function ListPage(props) {
     return {
       ...params,
       _page: Number.parseInt(params._page) || 1,
-      _limit: Number.parseInt(params._limit) || 12,
+      _limit: Number.parseInt(params._limit) || 9,
       _sort: params._sort || 'salePrice:ASC',
       isPromotion: params.isPromotion === 'true',
       isFreeShip: params.isFreeShip === 'true',
@@ -165,7 +165,7 @@ function ListPage(props) {
               <ProductSort currentSort={queryParams._sort} onChange={handleSortChange}></ProductSort>
               <FilterViewer filters={queryParams} onChange={setNewFilters}></FilterViewer>
               {loading ? (
-                <ProductSkeletonList length={12}></ProductSkeletonList>
+                <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (
                 <ProductList data={productList}></ProductList>
               )}

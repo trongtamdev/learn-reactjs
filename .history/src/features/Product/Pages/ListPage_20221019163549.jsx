@@ -165,7 +165,7 @@ function ListPage(props) {
               <ProductSort currentSort={queryParams._sort} onChange={handleSortChange}></ProductSort>
               <FilterViewer filters={queryParams} onChange={setNewFilters}></FilterViewer>
               {loading ? (
-                <ProductSkeletonList length={12}></ProductSkeletonList>
+                <ProductSkeletonList length={9}></ProductSkeletonList>
               ) : (
                 <ProductList data={productList}></ProductList>
               )}

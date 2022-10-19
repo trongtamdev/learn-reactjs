@@ -8,13 +8,14 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Typography
+  Typography,
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { formatPrice } from 'utils';
 import { removeFromCart } from './cartSlice';
 import { cartItemsCountSelector, cartTotalSelector } from './selectors';
+import useProductDetail from '../Product/hooks/useProductDetail';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 CartFeature.propTypes = {};
 
-function CartFeature() {
+function CartFeature({ id }) {
   const classes = useStyles();
   const cartTotal = useSelector(cartTotalSelector);
   const cartItemsCount = useSelector(cartItemsCountSelector);
@@ -57,8 +58,8 @@ function CartFeature() {
   // } = useRouteMatch();
   // const { product } = useProductDetail(productId);
 
-  const handleDeleteItem = (item) => {
-    dispatch(removeFromCart(item));
+  const handleDeleteItem = (item,idx) => {
+    dispatch(removeFromCart(idx));
   };
 
   return (
@@ -93,10 +94,11 @@ function CartFeature() {
               <TableCell align="right">{formatPrice(item.product.salePrice)}</TableCell>
               <TableCell align="right"> {item.quantity} </TableCell>
               <TableCell align="right"> {formatPrice(item.product.salePrice * item.quantity)}</TableCell>
-              {/* <TableCell align="right">
+              <TableCell align="right">
                 {' '}
                 <Button
-                  onClick={()=>handleDeleteItem(item)}
+                key={item.id}
+                  onClick={handleDeleteItem}
                   type="submit"
                   variant="contained"
                   color="primary"
@@ -105,7 +107,7 @@ function CartFeature() {
                 >
                   Remove
                 </Button>
-              </TableCell> */}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

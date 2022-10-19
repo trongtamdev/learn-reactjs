@@ -8,7 +8,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Typography
+  Typography,
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -43,23 +43,21 @@ const useStyles = makeStyles((theme) => ({
 
 CartFeature.propTypes = {};
 
-function CartFeature() {
+function CartFeature(props) {
   const classes = useStyles();
   const cartTotal = useSelector(cartTotalSelector);
   const cartItemsCount = useSelector(cartItemsCountSelector);
   const cart = useSelector((state) => state.cart.cartItems);
   console.log('list items:', cart);
-
+  
   const dispatch = useDispatch();
 
-  // const {
-  //   params: { productId },
-  // } = useRouteMatch();
-  // const { product } = useProductDetail(productId);
+  const handleDeleteItem=(cartItems)=>{
+    dispatch()
+    });
+    
+  }
 
-  const handleDeleteItem = (item) => {
-    dispatch(removeFromCart(item));
-  };
 
   return (
     <Box>
@@ -93,19 +91,12 @@ function CartFeature() {
               <TableCell align="right">{formatPrice(item.product.salePrice)}</TableCell>
               <TableCell align="right"> {item.quantity} </TableCell>
               <TableCell align="right"> {formatPrice(item.product.salePrice * item.quantity)}</TableCell>
-              {/* <TableCell align="right">
+              <TableCell align="right">
                 {' '}
-                <Button
-                  onClick={()=>handleDeleteItem(item)}
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  style={{ width: '50px' }}
-                  size="small"
-                >
+                <Button onClick={handleDeleteItem} type="submit" variant="contained" color="primary" style={{ width: '50px' }} size="small">
                   Remove
                 </Button>
-              </TableCell> */}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
